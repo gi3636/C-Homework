@@ -46,6 +46,7 @@
             this.btnDiv = new System.Windows.Forms.Button();
             this.btnEql = new System.Windows.Forms.Button();
             this.btnDelAll = new System.Windows.Forms.Button();
+            this.txBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btn7
@@ -56,6 +57,7 @@
             this.btn7.TabIndex = 0;
             this.btn7.Text = "7";
             this.btn7.UseVisualStyleBackColor = true;
+            this.btn7.Click += new System.EventHandler(this.btn7_Click);
             // 
             // btn4
             // 
@@ -65,6 +67,7 @@
             this.btn4.TabIndex = 1;
             this.btn4.Text = "4";
             this.btn4.UseVisualStyleBackColor = true;
+            this.btn4.Click += new System.EventHandler(this.btn4_Click);
             // 
             // btn1
             // 
@@ -74,6 +77,7 @@
             this.btn1.TabIndex = 2;
             this.btn1.Text = "1";
             this.btn1.UseVisualStyleBackColor = true;
+            this.btn1.Click += new System.EventHandler(this.btn1_Click);
             // 
             // btn8
             // 
@@ -83,6 +87,7 @@
             this.btn8.TabIndex = 3;
             this.btn8.Text = "8";
             this.btn8.UseVisualStyleBackColor = true;
+            this.btn8.Click += new System.EventHandler(this.btn8_Click);
             // 
             // btn9
             // 
@@ -92,6 +97,7 @@
             this.btn9.TabIndex = 4;
             this.btn9.Text = "9";
             this.btn9.UseVisualStyleBackColor = true;
+            this.btn9.Click += new System.EventHandler(this.btn9_Click);
             // 
             // btn5
             // 
@@ -101,6 +107,7 @@
             this.btn5.TabIndex = 7;
             this.btn5.Text = "5";
             this.btn5.UseVisualStyleBackColor = true;
+            this.btn5.Click += new System.EventHandler(this.btn5_Click);
             // 
             // btn2
             // 
@@ -110,6 +117,7 @@
             this.btn2.TabIndex = 8;
             this.btn2.Text = "2";
             this.btn2.UseVisualStyleBackColor = true;
+            this.btn2.Click += new System.EventHandler(this.btn2_Click);
             // 
             // btn6
             // 
@@ -119,6 +127,7 @@
             this.btn6.TabIndex = 9;
             this.btn6.Text = "6";
             this.btn6.UseVisualStyleBackColor = true;
+            this.btn6.Click += new System.EventHandler(this.btn6_Click);
             // 
             // btn3
             // 
@@ -128,6 +137,7 @@
             this.btn3.TabIndex = 10;
             this.btn3.Text = "3";
             this.btn3.UseVisualStyleBackColor = true;
+            this.btn3.Click += new System.EventHandler(this.btn3_Click);
             // 
             // btnDel
             // 
@@ -137,6 +147,7 @@
             this.btnDel.TabIndex = 11;
             this.btnDel.Text = "Del";
             this.btnDel.UseVisualStyleBackColor = true;
+            this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
             // 
             // btn0
             // 
@@ -146,6 +157,7 @@
             this.btn0.TabIndex = 12;
             this.btn0.Text = "0";
             this.btn0.UseVisualStyleBackColor = true;
+            this.btn0.Click += new System.EventHandler(this.btn0_Click);
             // 
             // btnDot
             // 
@@ -155,6 +167,7 @@
             this.btnDot.TabIndex = 13;
             this.btnDot.Text = ".";
             this.btnDot.UseVisualStyleBackColor = true;
+            this.btnDot.Click += new System.EventHandler(this.btnDot_Click);
             // 
             // btnPlus
             // 
@@ -164,6 +177,7 @@
             this.btnPlus.TabIndex = 14;
             this.btnPlus.Text = "+";
             this.btnPlus.UseVisualStyleBackColor = true;
+            this.btnPlus.Click += new System.EventHandler(this.btnPlus_Click);
             // 
             // btnSub
             // 
@@ -173,6 +187,7 @@
             this.btnSub.TabIndex = 15;
             this.btnSub.Text = "-";
             this.btnSub.UseVisualStyleBackColor = true;
+            this.btnSub.Click += new System.EventHandler(this.btnSub_Click);
             // 
             // btnMul
             // 
@@ -182,6 +197,7 @@
             this.btnMul.TabIndex = 16;
             this.btnMul.Text = "*";
             this.btnMul.UseVisualStyleBackColor = true;
+            this.btnMul.Click += new System.EventHandler(this.btnMul_Click);
             // 
             // btnDiv
             // 
@@ -191,6 +207,7 @@
             this.btnDiv.TabIndex = 17;
             this.btnDiv.Text = "/";
             this.btnDiv.UseVisualStyleBackColor = true;
+            this.btnDiv.Click += new System.EventHandler(this.btnDiv_Click);
             // 
             // btnEql
             // 
@@ -200,6 +217,7 @@
             this.btnEql.TabIndex = 18;
             this.btnEql.Text = "=";
             this.btnEql.UseVisualStyleBackColor = true;
+            this.btnEql.Click += new System.EventHandler(this.btnEql_Click);
             // 
             // btnDelAll
             // 
@@ -209,12 +227,22 @@
             this.btnDelAll.TabIndex = 19;
             this.btnDelAll.Text = "AC";
             this.btnDelAll.UseVisualStyleBackColor = true;
+            this.btnDelAll.Click += new System.EventHandler(this.btnDelAll_Click);
+            // 
+            // txBox
+            // 
+            this.txBox.Location = new System.Drawing.Point(20, 40);
+            this.txBox.Name = "txBox";
+            this.txBox.Size = new System.Drawing.Size(380, 22);
+            this.txBox.TabIndex = 20;
+            this.txBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txBox_KeyPress);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(432, 433);
+            this.ClientSize = new System.Drawing.Size(420, 433);
+            this.Controls.Add(this.txBox);
             this.Controls.Add(this.btnDelAll);
             this.Controls.Add(this.btnEql);
             this.Controls.Add(this.btnDiv);
@@ -236,6 +264,7 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -259,6 +288,7 @@
         private System.Windows.Forms.Button btnDiv;
         private System.Windows.Forms.Button btnEql;
         private System.Windows.Forms.Button btnDelAll;
+        private System.Windows.Forms.TextBox txBox;
     }
 }
 
