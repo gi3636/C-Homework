@@ -8,8 +8,6 @@ namespace Homework2
 {
     class Program
     {
-        public static object Mart { get; private set; }
-
         static void Main(string[] args)
         {
             Console.Write("请输入要分解的数：");
