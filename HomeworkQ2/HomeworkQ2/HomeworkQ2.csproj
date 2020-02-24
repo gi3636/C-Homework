@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A56CFD39-9CB6-4B87-B642-4B243832270D}</ProjectGuid>
+    <ProjectGuid>{B57245A9-CDB8-4C45-AC0C-AEAE8FE52885}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>CSharpHomework</RootNamespace>
-    <AssemblyName>CSharpHomework</AssemblyName>
+    <RootNamespace>HomeworkQ2</RootNamespace>
+    <AssemblyName>HomeworkQ2</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
