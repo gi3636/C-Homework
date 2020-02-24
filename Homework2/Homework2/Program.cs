@@ -13,6 +13,10 @@ namespace Homework2
             Console.Write("请输入要分解的数：");
             int n = int.Parse(Console.ReadLine());
             Analyze(n);
+            Console.WriteLine();
+            Console.Write("请输入埃拉托斯特尼筛法的数：");
+            int a = int.Parse(Console.ReadLine());
+            IsPrime(a);//埃拉托斯特尼筛法
             Console.ReadKey();
         }
 
@@ -45,6 +49,37 @@ namespace Homework2
                 {
                     n = n / (i + 2);
                     Console.Write((i + 2) + " ");
+                }
+            }
+        }
+
+        public static void IsPrime(int n)//埃拉托斯特尼筛法
+        {
+
+            bool[] mark = new bool[n + 1]; //用于标记，true表示是素数，false表示非素数
+
+            for (int i = 2; i <= n; i++)
+            {
+                mark[i] = true;
+            }
+
+            for (int i = 2; i < mark.Length; i++)
+            {
+                if (mark[i] == true)
+                {
+                    for (int j = i; j * i <= n; j++)
+                    {
+                        mark[i * j] = false;
+                    }
+                }
+            }
+
+            for (int i = 2; i <= n; i++)
+            {
+                if (mark[i] == true)
+                {
+                    Console.WriteLine(i + " ");
+                   
                 }
             }
         }
