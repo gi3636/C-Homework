@@ -13,7 +13,7 @@ namespace Project8
             Customer customer = new Customer("FG", "China", "1001", 15236975);
             OrderService orderService = new OrderService();
             orderService.Export();
-            orderService.initialProductList();
+            orderService.ImportProductList();
             while (true)
             {
                 Console.WriteLine("请根据需求选择你要的操作:");

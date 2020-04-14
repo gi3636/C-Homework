@@ -37,8 +37,12 @@ namespace Project8
 
         public override string ToString()
         {
-            return "ID:" + ProductID + " Name:" + ProductName + " Price:" + ProductPrice + " Quantity:" + ProductQuantity;
+            return  ProductName ;
         }
+        //public override string ToString()
+        //{
+        //    return "ID:" + ProductID + " Name:" + ProductName + " Price:" + ProductPrice + " Quantity:" + ProductQuantity;
+        //}
 
         public override bool Equals(object obj)
         {

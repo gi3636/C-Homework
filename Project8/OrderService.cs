@@ -21,7 +21,7 @@ namespace Project8
     //1、在OrderService中添加一个Export方法，可以将所有的订单序列化为XML文件；添加一个Import方法可以从XML文件中载入订单。
     //2、对订单程序中OrderService的各个Public方法添加测试用例。
 
-   public class OrderService
+    public class OrderService
     {
         public static int count = 1;
         public static int countOrder = 1;
@@ -33,33 +33,83 @@ namespace Project8
         [XmlAttribute("Order")]
         List<Order> orderList = new List<Order>();
 
-
+        public int  getCountOrder (){
+            return countOrder;
+        }
         public void Export()
         {
             XmlSerializer writer = new XmlSerializer(orderList.GetType());
-            StreamWriter myWriter = new StreamWriter("OrderList.xml");
-            writer.Serialize(myWriter, orderList);
-            myWriter.Close();
+            
+            using (FileStream fs = new FileStream("OrderList.xml", FileMode.Open))
+            {
+                writer.Serialize(fs, orderList);
+            }
+            //Console.WriteLine(File.ReadAllText("OrderList.xml"));
+            //StreamWriter myWriter = new StreamWriter("OrderList.xml");
+            //writer.Serialize(myWriter, orderList);
+            //myWriter.Close();
+        }
+ 
+        public void ExportProductList()
+        {
+            XmlSerializer writer = new XmlSerializer(productList.GetType());
+
+            using (FileStream fs = new FileStream("ProductList.xml", FileMode.Open))
+            {
+                writer.Serialize(fs, productList);
+            }
+            //Console.WriteLine(File.ReadAllText("OrderList.xml"));
+            //StreamWriter myWriter = new StreamWriter("OrderList.xml");
+            //writer.Serialize(myWriter, orderList);
+            //myWriter.Close();
         }
         public void Import()
         {
-            XmlSerializer mySerializer = new XmlSerializer(orderList.GetType());           
+
+            XmlSerializer mySerializer = new XmlSerializer(orderList.GetType());
             var myFileStream = new FileStream("OrderList.xml", FileMode.Open);
             orderList = (List<Order>)mySerializer.Deserialize(myFileStream);
             foreach (Order p in orderList)
             {
                 Console.WriteLine(p);
             }
+            myFileStream.Close();
         }
 
-    public void queryOrderById()
+        public void ImportProductList()
         {
+
+            XmlSerializer mySerializer = new XmlSerializer(productList.GetType());
+            var myFileStream = new FileStream("ProductList.xml", FileMode.Open);
+            productList = (List<Product>)mySerializer.Deserialize(myFileStream);
             
+            foreach (Product p in productList)
+            {
+                Console.WriteLine(p);
+            }
+            myFileStream.Close();
+        }
+
+        //public void getProductById(String pID)
+        //{
+        //    var p = from product in productList
+        //            where product.ProductID==pID
+        //            select product;
+        //}
+
+
+         public void addOrder(Order order)
+        {
+            orderList.Add(order);
+        }
+        public void queryOrderById()
+        {
+
             var query = from order in orderList
                         orderby order.SumPrice ascending
                         select order;
 
-            foreach(var q in query)
+            foreach (var q in query)
             {
                 Console.WriteLine(q);
             }
@@ -78,6 +128,14 @@ namespace Project8
                 return number;
             }
         }
+        public List<Order> getOrderList()
+        {
+            return orderList;
+        }
+        public List<Product> getProductList()
+        {
+            return productList;
+        }
 
         public void initialProductList()
         {
@@ -89,6 +147,7 @@ namespace Project8
             this.addProduct(product2);
             this.addProduct(product3);
             this.addProduct(product4);
+            
         }
         public void addProduct(Product product)//添加产品
         {
@@ -127,8 +186,8 @@ namespace Project8
                         {
                             order.OrderID = "R" + countOrder.ToString();
                             order.Quantity = k;
-                            order.ProductID = product.ProductID;
-                            order.CustomerID = customer.CustomerID;
+                            order.ProductName = product.ProductName;
+                            order.CustomerName = customer.CustomerName;
                             order.RequiredDate = DateTime.Now;
                             order.SumPrice = k * product.ProductPrice;
                             product.ProductQuantity = product.ProductQuantity - k;
@@ -152,7 +211,7 @@ namespace Project8
             foreach(Order order in orderList)
             {
                 orderItem.OrderID = order.OrderID;
-                orderItem.ProductID = order.ProductID;
+                //orderItem.ProductID = order.ProductID;
                 orderItem.ProductPrice = order.SumPrice;
                 Console.WriteLine(orderItem);
                 sum += order.SumPrice;

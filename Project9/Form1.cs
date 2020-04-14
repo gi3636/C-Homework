@@ -20,7 +20,7 @@ namespace Project9
         double th2;
         double per1;
         double per2;
-        bool b = false;
+  
         public Form1()
         {
             InitializeComponent();
@@ -94,10 +94,7 @@ namespace Project9
 
         private void pictureBox1_Click(object sender, PaintEventArgs e)
         {
-            if (b == false)
-            {
-                return;
-            }
+            
             Graphics g = e.Graphics;
             Pen p = new Pen(Color.Red, 2);
             g.DrawLine(p, 0, 0, 100, 100);
